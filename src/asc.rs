@@ -78,6 +78,12 @@ impl<T: ?Sized> Deref for Asc<T> {
     }
 }
 
+impl<T: ?Sized> AsRef<T> for Asc<T> {
+    fn as_ref(&self) -> &T {
+        self
+    }
+}
+
 unsafe impl<T: ?Sized> Sync for Asc<T> {}
 unsafe impl<T: ?Sized> Send for Asc<T> {}
 

@@ -93,6 +93,12 @@ impl<T: ?Sized> Deref for Sc<T> {
     }
 }
 
+impl<T: ?Sized> AsRef<T> for Sc<T> {
+    fn as_ref(&self) -> &T {
+        self
+    }
+}
+
 impl<T: ?Sized> !Sync for Sc<T> {}
 
 impl<T: ?Sized + Unsize<U>, U: ?Sized> CoerceUnsized<Sc<U>> for Sc<T> {}
