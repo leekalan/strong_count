@@ -78,5 +78,8 @@ impl<T: ?Sized> Deref for Asc<T> {
     }
 }
 
+unsafe impl<T: ?Sized> Sync for Asc<T> {}
+unsafe impl<T: ?Sized> Send for Asc<T> {}
+
 impl<T: ?Sized + Unsize<U>, U: ?Sized> CoerceUnsized<Asc<U>> for Asc<T> {}
 impl<T: ?Sized + Unsize<U>, U: ?Sized> DispatchFromDyn<Asc<U>> for Asc<T> {}
